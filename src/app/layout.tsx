@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import { LuCrown } from "react-icons/lu";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
@@ -16,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={`${roboto.className} bg-darkPrimary `}> {children}</body>
     </html>
   );
 }
