@@ -1,7 +1,7 @@
 "use client";
 
 import NavLink from "@/components/ui/navlink";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { GiDeathStar } from "react-icons/gi";
 export default function ComponentsLayout({
@@ -11,6 +11,7 @@ export default function ComponentsLayout({
 }>) {
   const [mobileMenu, setMobileMenu] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const links = [
     {
       href: "/components/navigation",
@@ -51,7 +52,7 @@ export default function ComponentsLayout({
               href={link.href}
               icon={link.icon}
               label={link.label}
-              isActive={router.pathname === link.href}
+              isActive={pathname === link.href}
               onClick={link.label === "Logout" ? handleLogout : closeMobileMenu}
             />
           ))}
